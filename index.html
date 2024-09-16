@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <title> Tabby Copy</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+            
+            html{
+                scroll-behavior: smooth;
+            }
+            body{
+                margin: 0;
+                color: white;
+                font-family:"Outfit",sans-serif;
+            }
+            section {
+                height:100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .content { 
+                border: 1px solid transparent;
+                width: 50%;
+                height: fit-content;
+                display:flex;
+                align-items: center;
+            }
+
+            section:nth-child(1) {
+                background: #bad5dd
+            }
+
+            section:nth-child(2) {
+                background: #e4a5c2
+            }
+
+            section:nth-child(3) {
+                background: #fc7e7e
+            }
+
+            nav{
+                position:fixed;
+                top:16px;
+                left:50%;
+                translate:-50%;
+                background-color: rgba(128, 128, 128, 0.154);
+                border-radius: 10px;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 10px;
+            }
+
+            @keyframes arrowmove {
+                from {
+                    translate: 0 -5px;
+                }
+                to {
+                    translate: 0 8px;
+                }
+            }
+            #arrow {
+                translate: 0 0;
+                animation: arrowmove 1s infinite;
+                animation-direction: alternate;
+                height: 18px;
+            }
+
+            #pets {
+                text-align: center;
+            }
+
+            #cursor {
+                width: 30px;
+                height: 30px;
+                background: rgba(255, 255, 255, 0.154);
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                border-radius: 15px;
+                translate:-50% -50%;
+                mix-blend-mode:difference;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="#pets">Home</a>
+            <a href="#cat">Cat</a>
+            <a href="#dog">Dog</a>
+        </nav>
+
+        <main>
+            <section id="pets">
+                <div class="content">
+                    <div class="left">
+                        <h2>Meet your first pet</h2>
+                        <p>What is an interesting fact about pets?</p>
+                        <img id="arrow" src="arrow.png">
+                    </div>
+                </div>
+            </section>
+            <section id="cat">
+                <div class="content">
+                    <div class="left">
+                        <h2>Cat (Gatito)</h2>
+                        <p>Cats have comforting, rumbly purrs.</p>
+                    </div>
+                    <div class="right">[image here]</div>
+                </div>
+            </section>
+            <section id="dog">
+                <div class="content">
+                    <div class="left">
+                        <h2>Dog (Perrito)</h2>
+                        <p>Dogs dream, just like humans.</p>
+                    </div>
+                    <div class="right">[image here]</div>
+                </div>
+            </section>
+        </main>
+       
+        <div id="cursor"> </div>
+
+        <script>
+
+            function move(event) {
+                cursor.style.top=event.y + "px";
+                cursor.style.left=event.x +"px";
+                //console.log (event.x,event.y);
+            }
+
+            window.onmousemove= move
+        </script>
+    </body>
+</html>
